@@ -29,6 +29,10 @@ jobs:
         run: |
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
+      - name: Force Java 17
+        run: |
+          echo "JAVA_HOME=$JAVA_HOME"
+          java -version
       - name: Build APK
         run: |
           yes | buildozer android debug || yes | buildozer android debug
