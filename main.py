@@ -1,5 +1,17 @@
 
 # main.py
+import sys, traceback
+
+def _dump_exception(exc_type, exc_value, exc_tb):
+    try:
+        with open("/sdcard/ankitxt_error.txt", "w") as f:
+            f.write("".join(traceback.format_exception(exc_type, exc_value, exc_tb)))
+    except Exception:
+        pass
+
+sys.excepthook = _dump_exception
+
+
 from pathlib import Path
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
