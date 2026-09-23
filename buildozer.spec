@@ -5,7 +5,7 @@ package.domain = org.ankitxt
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas
 version = 1.0.0
-requirements = python3,kivy,genanki,pyyaml,pystache,frozendict,packaging,pyjnius
+requirements = python3,kivy,genanki,PyYAML==6.0.1,pystache,frozendict,packaging
 orientation = portrait
 fullscreen = 0
 android.permissions = READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
