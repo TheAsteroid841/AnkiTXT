@@ -16,3 +16,5 @@ android.archs = arm64-v8a
 android.accept_sdk_license = True
 android.allow_backup = True
 p4a.bootstrap = sdl2
+android.apptheme = @android:style/Theme.NoTitleBar
+android.private_storage = False
