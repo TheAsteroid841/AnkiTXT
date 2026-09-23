@@ -1,17 +1,26 @@
-import os
+import os, sys
 
-LOG_PATHS = [
-    "/data/data/org.ankitxt.ankitxt/files/ankitxt_boot.txt",
-]
+PKG = "org.ankitxt.ankitxt"
 
 def _log(msg):
-    for p in LOG_PATHS:
+    line = msg + "\n"
+    try:
+        sys.stderr.write(line)
+        sys.stderr.flush()
+    except Exception:
+        pass
+
+    paths = [
+        f"/data/data/{PKG}/files/ankitxt_boot.txt",
+        "/sdcard/ankitxt_boot.txt",
+    ]
+    for p in paths:
         try:
             d = os.path.dirname(p)
             if d and not os.path.exists(d):
                 os.makedirs(d, exist_ok=True)
             with open(p, "a", encoding="utf-8") as f:
-                f.write(msg + "\n")
+                f.write(line)
         except Exception:
             pass
 
